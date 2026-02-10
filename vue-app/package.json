@@ -6,7 +6,7 @@
   "scripts": {
     "predev": "node copy-public.js",
     "dev": "vite",
-    "build": "node copy-public.js && vite build",
+    "build": "node copy-public.js && node node_modules/vite/bin/vite.js build",
     "preview": "vite preview"
   },
   "dependencies": {
