@@ -1,0 +1,1382 @@
+/* --- CSS VARIABLES (LIGHT THEME) --- */
+:root {
+    --racing-red: #ff1801;
+    --electric-blue: #007cc7;
+    --bg-white: #ffffff;
+    --bg-light: #f4f6f8;
+    --text-main: #1a1a1a;
+    --text-muted: #555555;
+    --font-display: 'Orbitron', sans-serif;
+    --font-body: 'Noto Sans TC', sans-serif;
+    --whatsapp-green: #25d366;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--bg-white);
+    color: var(--text-main);
+    font-family: var(--font-body);
+    overflow-x: hidden;
+    line-height: 1.6;
+}
+
+/* --- NAVIGATION --- */
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 40px;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    border-bottom: 2px solid var(--racing-red);
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+/* 舊的 .logo 樣式已移除，現在 Logo 由圖片控制 */
+.logo-link {
+    display: flex; /* 確保圖片能正確顯示 */
+    align-items: center;
+    text-decoration: none; /* 移除連結下劃線 */
+}
+
+.logo-img {
+    height: 45px; /* 設定您的 Logo 圖片高度 */
+    width: auto; /* 保持圖片比例 */
+    transition: transform 0.3s ease;
+}
+
+.logo-img:hover {
+    transform: scale(1.05); /* 鼠標懸停時稍微放大 */
+}
+
+.nav-links {
+    display: flex;
+    gap: 20px;
+}
+
+/* Apply nav-btn styles to <a> tags */
+.nav-btn {
+    background: none;
+    border: none;
+    color: var(--text-muted);
+    font-family: var(--font-body);
+    font-size: 1rem;
+    cursor: pointer;
+    font-weight: 600;
+    transition: 0.3s;
+    padding: 5px 10px;
+    text-decoration: none; /* Add this for <a> tags */
+    display: flex; /* Allow <a> to be styled like a button */
+    align-items: center;
+    justify-content: center;
+}
+
+.nav-btn:hover, .nav-btn.active {
+    color: var(--racing-red);
+}
+
+.download-nav {
+    background-color: var(--racing-red);
+    color: white !important;
+    padding: 8px 20px;
+    border-radius: 4px;
+    transform: skewX(-15deg);
+}
+
+.download-nav span { display: inline-block; transform: skewX(15deg); }
+.download-nav:hover {
+    background-color: var(--text-main);
+    color: white;
+}
+
+/* Mobile menu toggle button (hidden by default) */
+.menu-toggle {
+    display: none; /* Hidden by default on desktop */
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    color: var(--text-main);
+    cursor: pointer;
+    z-index: 1001;
+}
+
+/* 預約體驗下拉選單 */
+.nav-dropdown {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+.nav-dropdown-trigger {
+    background: none;
+    border: none;
+    color: var(--text-muted);
+    font-family: var(--font-body);
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    padding: 5px 10px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    transition: 0.3s;
+}
+.nav-dropdown-trigger:hover,
+.nav-dropdown.open .nav-dropdown-trigger,
+.nav-dropdown.is-active .nav-dropdown-trigger {
+    color: var(--racing-red);
+}
+.nav-dropdown-trigger i.fa-chevron-down {
+    font-size: 0.75rem;
+    transition: transform 0.2s;
+}
+.nav-dropdown.open .nav-dropdown-trigger i.fa-chevron-down {
+    transform: rotate(180deg);
+}
+.nav-dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    margin-top: 4px;
+    min-width: 180px;
+    background: rgba(255, 255, 255, 0.98);
+    border: 1px solid #eee;
+    border-radius: 8px;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+    padding: 8px 0;
+    list-style: none;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-6px);
+    transition: opacity 0.2s, transform 0.2s, visibility 0.2s;
+    z-index: 1002;
+}
+.nav-dropdown.open .nav-dropdown-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+.nav-dropdown-menu a {
+    display: block;
+    padding: 10px 20px;
+    color: var(--text-main);
+    text-decoration: none;
+    font-weight: 500;
+    transition: background 0.2s, color 0.2s;
+}
+.nav-dropdown-menu a:hover {
+    background: var(--bg-light);
+    color: var(--racing-red);
+}
+.nav-dropdown-menu a i {
+    margin-right: 8px;
+    width: 18px;
+    text-align: center;
+}
+
+/* --- WHATSAPP FLOATING BUTTON --- */
+.whatsapp-float {
+    position: fixed;
+    width: 60px;
+    height: 60px;
+    bottom: 30px;
+    right: 30px;
+    background-color: var(--whatsapp-green);
+    color: #FFF;
+    border-radius: 50px;
+    text-align: center;
+    font-size: 35px;
+    box-shadow: 2px 2px 10px rgba(0,0,0,0.2);
+    z-index: 2000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.whatsapp-float:hover {
+    transform: scale(1.1);
+    box-shadow: 2px 2px 15px rgba(0,0,0,0.3);
+    background-color: #1ebd57;
+}
+
+/* --- PAGE CONTENT HANDLING --- */
+.page-section {
+    display: none;
+    padding-top: 80px;
+    min-height: 100vh;
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+.page-section.active {
+    display: block;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* --- HERO SLIDER STYLES --- */
+.hero {
+    position: relative;
+    padding: 0;
+    height: 85vh;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: #ffffff;
+}
+
+.slider-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+
+.slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: opacity 0.8s ease-in-out;
+    background-size: cover;
+    background-position: center;
+}
+
+.slide::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0.4) 100%);
+}
+
+.slide.active { opacity: 1; }
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    padding: 20px;
+}
+
+.hero h1 {
+    font-size: 3.5rem;
+    margin-bottom: 20px;
+    font-weight: 900;
+    text-shadow: 2px 2px 10px rgba(0,0,0,0.5);
+    line-height: 1.2;
+}
+
+.hero p {
+    font-size: 1.2rem;
+    color: #e0e0e0;
+    max-width: 600px;
+    margin: 0 auto 40px auto;
+    text-shadow: 1px 1px 5px rgba(0,0,0,0.5);
+}
+
+.slider-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(5px);
+    color: white;
+    border: 1px solid white;
+    font-size: 24px;
+    padding: 15px 20px;
+    cursor: pointer;
+    z-index: 10;
+    transition: all 0.3s ease;
+    border-radius: 50%;
+}
+
+.slider-arrow:hover {
+    background: white;
+    color: black;
+}
+
+.prev { left: 30px; }
+.next { right: 30px; }
+
+/* --- BUTTONS (Applied to both <button> and <a> with these classes) --- */
+.cta-button {
+    display: inline-block;
+    padding: 15px 40px;
+    background: var(--racing-red);
+    color: white;
+    text-decoration: none; /* Added for <a> tags */
+    font-weight: bold;
+    font-size: 1.2rem;
+    border: 2px solid var(--racing-red);
+    transition: 0.3s;
+    transform: skewX(-15deg);
+    cursor: pointer;
+    box-shadow: 5px 5px 15px rgba(0,0,0,0.2);
+}
+
+.cta-button span { display: inline-block; transform: skewX(15deg); }
+.cta-button:hover {
+    background: white;
+    color: var(--racing-red);
+}
+
+.btn-secondary {
+    background: transparent;
+    border-color: white;
+    margin-left: 10px;
+}
+.btn-secondary:hover {
+    background: white;
+    color: var(--text-main);
+    border-color: white;
+}
+
+/* --- CONTAINER & CARDS --- */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 50px 20px;
+}
+
+.section-header {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.section-header h2 {
+    font-size: 2.5rem;
+    color: var(--text-main);
+    margin-bottom: 15px;
+}
+
+/* --- 核心體驗 (首頁) --- */
+.experience-section {
+    padding-top: 40px;
+}
+.experience-title {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 3rem;
+    color: var(--text-main);
+    position: relative;
+}
+.experience-title::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 3px;
+    background: var(--racing-red);
+    margin: 10px auto 0;
+}
+.experience-features {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    text-align: center;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+.feature-card {
+    background: var(--bg-light);
+    padding: 2rem;
+    border-radius: 10px;
+    border-left: 4px solid var(--racing-red);
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+    transition: transform 0.3s ease;
+}
+.feature-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+.feature-card i {
+    font-size: 3rem;
+    color: var(--racing-red);
+    margin-bottom: 1rem;
+    display: block;
+}
+.feature-card h3 {
+    color: var(--electric-blue);
+    margin-bottom: 1rem;
+    font-size: 1.25rem;
+}
+.feature-card p {
+    color: var(--text-muted);
+    font-size: 1rem;
+    line-height: 1.6;
+}
+
+/* --- 考照挑戰 / 賽道介紹 頁面 --- */
+.levels-section {
+    background: var(--bg-light);
+    margin: 0 auto;
+    padding: 50px 20px;
+}
+.levels-title,
+.track-section-wrap .track-text h3 {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+    color: var(--text-main);
+}
+.levels-title::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 3px;
+    background: var(--racing-red);
+    margin: 10px auto 0;
+}
+.level-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+.level-card {
+    background: var(--bg-white);
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    border: 1px solid #e8e8e8;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+.level-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 24px rgba(0,0,0,0.12);
+}
+.level-img {
+    width: 100%;
+    height: 220px;
+    overflow: hidden;
+    background: var(--bg-light);
+}
+.level-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.level-info {
+    padding: 1.5rem;
+}
+.level-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.75rem;
+}
+.level-header h3 {
+    color: var(--electric-blue);
+    font-size: 1.2rem;
+    margin: 0;
+}
+.badge {
+    padding: 4px 10px;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    font-weight: bold;
+}
+.badge.novice { background: #4CAF50; color: white; }
+.badge.pro { background: #f0db4f; color: #1a1a1a; }
+.badge.master { background: var(--racing-red); color: white; }
+.level-info p {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    margin-bottom: 0.5rem;
+}
+.level-info ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+.level-info ul li {
+    margin-bottom: 0.5rem;
+    font-size: 0.9rem;
+    color: var(--text-muted);
+}
+.level-info ul li i {
+    color: var(--racing-red);
+    margin-right: 8px;
+    width: 18px;
+}
+.levels-cta,
+.track-cta {
+    text-align: center;
+    margin-top: 2.5rem;
+}
+
+/* 考照 level 卡片可點擊進入詳情 */
+.level-card-link {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+}
+.level-card-link:hover {
+    color: inherit;
+}
+.level-card-enter {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    margin-top: 12px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--electric-blue);
+}
+.level-card-link:hover .level-card-enter {
+    color: var(--racing-red);
+}
+
+/* Level 詳情頁（賽道影片 + 玩法介紹） */
+.level-detail-page {
+    padding-top: 100px;
+    padding-bottom: 60px;
+    min-height: 100vh;
+}
+.level-detail-page .container {
+    max-width: 900px;
+}
+.level-detail-back {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 2rem;
+    color: var(--text-muted);
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.2s;
+}
+.level-detail-back:hover {
+    color: var(--racing-red);
+}
+.level-detail-header {
+    margin-bottom: 2.5rem;
+}
+.level-detail-header .badge {
+    display: inline-block;
+    margin-bottom: 10px;
+}
+.level-detail-header h1 {
+    font-size: 2rem;
+    color: var(--text-main);
+    margin-bottom: 0.5rem;
+}
+.level-detail-desc {
+    color: var(--text-muted);
+    font-size: 1.05rem;
+}
+.level-detail-video-section,
+.level-detail-gameplay {
+    margin-bottom: 2.5rem;
+}
+.level-detail-video-section h2,
+.level-detail-gameplay h2 {
+    font-size: 1.35rem;
+    color: var(--electric-blue);
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.level-detail-video-wrap {
+    border-radius: 10px;
+    overflow: hidden;
+    border: 2px solid var(--electric-blue);
+    box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+}
+.level-detail-video {
+    width: 100%;
+    display: block;
+}
+.level-detail-coming-soon {
+    background: var(--bg-light);
+    border: 2px dashed #ccc;
+    border-radius: 10px;
+    padding: 3rem 2rem;
+    text-align: center;
+    color: var(--text-muted);
+}
+.level-detail-coming-soon i {
+    font-size: 3rem;
+    display: block;
+    margin-bottom: 12px;
+    opacity: 0.6;
+}
+.level-detail-coming-soon p {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--text-main);
+    margin-bottom: 4px;
+}
+.level-detail-coming-soon span {
+    font-size: 0.95rem;
+}
+.level-detail-gameplay-content {
+    background: var(--bg-light);
+    padding: 1.5rem;
+    border-radius: 10px;
+    border-left: 4px solid var(--electric-blue);
+}
+/* 玩法介紹：左右兩欄（任務 A 左、任務 B 右） */
+.gameplay-blocks {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+}
+.gameplay-blocks .gameplay-task {
+    margin-bottom: 0;
+    background: var(--bg-white);
+    padding: 1.25rem;
+    border-radius: 8px;
+    border: 1px solid #e8e8e8;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+}
+/* Level 3：三個 block 直向排列，不用左右兩欄 */
+.gameplay-blocks-stack {
+    grid-template-columns: 1fr;
+}
+.gameplay-blocks-stack .gameplay-task {
+    margin-bottom: 1rem;
+}
+.gameplay-blocks-stack .gameplay-task:last-child {
+    margin-bottom: 0;
+}
+.gameplay-list {
+    list-style: none;
+    padding: 0;
+    margin: 0.5rem 0 0;
+}
+.gameplay-list li {
+    margin-bottom: 0.5rem;
+    line-height: 1.5;
+    padding-left: 0;
+    color: var(--text-main);
+}
+.gameplay-task {
+    margin-bottom: 1.5rem;
+}
+.gameplay-task:last-child {
+    margin-bottom: 0;
+}
+.gameplay-task h3 {
+    font-size: 1.15rem;
+    color: var(--electric-blue);
+    margin-bottom: 0.5rem;
+}
+.gameplay-task p {
+    margin-bottom: 0.5rem;
+    line-height: 1.6;
+    color: var(--text-main);
+}
+.gameplay-point {
+    margin-top: 0.5rem;
+    padding-left: 1rem;
+    border-left: 3px solid var(--racing-red);
+    font-size: 0.95rem;
+}
+.level-detail-cta {
+    text-align: center;
+    margin-top: 2rem;
+}
+
+.track-section-wrap {
+    padding: 50px 20px;
+}
+.track-section {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 3rem;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+.track-text {
+    flex: 1;
+    min-width: 280px;
+}
+.track-text h3 {
+    text-align: left;
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    color: var(--electric-blue);
+}
+.track-text p,
+.track-text ul {
+    color: var(--text-muted);
+    line-height: 1.7;
+}
+.track-text ul {
+    list-style: none;
+    padding: 0;
+}
+.track-text ul li {
+    margin-bottom: 0.75rem;
+    padding-left: 0;
+}
+.track-image {
+    flex: 1;
+    min-width: 280px;
+}
+.track-image img {
+    width: 100%;
+    border-radius: 10px;
+    border: 2px solid var(--electric-blue);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+}
+
+/* 賽道介紹：用影片取代圖片時（同一區塊） */
+.track-video-inline {
+    border-radius: 10px;
+    overflow: hidden;
+    border: 2px solid var(--electric-blue);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+}
+.track-video-inline .track-video-element {
+    width: 100%;
+    display: block;
+    vertical-align: top;
+}
+.track-video-inline.track-video-youtube {
+    position: relative;
+    padding-bottom: 56.25%;
+    height: 0;
+}
+.track-video-inline.track-video-youtube iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+/* 賽道介紹影片（獨立區塊，已改為用上方區塊取代） */
+.track-video {
+    max-width: 900px;
+    margin: 2rem auto 0;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+    border: 2px solid var(--electric-blue);
+}
+.track-video-element {
+    width: 100%;
+    display: block;
+    vertical-align: top;
+}
+.track-video-youtube {
+    position: relative;
+    padding-bottom: 56.25%;
+    height: 0;
+}
+.track-video-youtube iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+/* 課程專用：雙欄 (1fr 1fr) */
+.grid-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+    max-width: 900px;
+    margin: 0 auto;
+    align-items: start;
+}
+
+.split-container {
+    display: flex;           /* 開啟並排 */
+    align-items: center;     /* 垂直置中 */
+    gap: 40px;               /* 圖文間距 */
+    margin-bottom: 50px;     /* 每一大行之間的距離 */
+}
+
+.split-container:last-child {
+    margin-bottom: 0;
+    border-bottom: none;
+}
+
+.split-image,
+.split-text {
+    flex: 1;                 /* 兩個區塊平分空間 (1:1) */
+    min-width: 0;
+}
+.split-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 8px;
+}
+
+/* 展覽活動：圖片統一比例 1:1 正方型 */
+.exhibition-image-wrap {
+    aspect-ratio: 1 / 1;
+    overflow: hidden;
+    border-radius: 8px;
+}
+.exhibition-image-wrap img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.split-container:nth-child(even) {
+flex-direction: row-reverse;
+}
+
+
+/* 首頁核心價值專用：三欄 (3, 1fr) */
+.values-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.card {
+    background: var(--bg-light);
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+    transition: transform 0.3s ease;
+    border-left: 4px solid var(--electric-blue);
+    position: relative;
+    overflow: hidden;
+    text-align: center;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+
+.card h3 {
+    color: var(--electric-blue);
+    margin-bottom: 15px;
+    font-size: 1.25rem;
+}
+
+.card-date {
+    color: var(--racing-red);
+    font-size: 0.9rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+    display: block;
+}
+
+
+
+.event div{
+    width: 300px;
+    text-align: center;
+}
+
+.event img{
+    width: 50%;
+    border-radius: 10px;
+}
+
+.einfo {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.tag {
+    display: inline-block;
+    background: rgba(0, 124, 199, 0.1);
+    color: var(--electric-blue);
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 600;
+    margin-top: 15px;
+    margin-right: 5px;
+}
+
+/* --- DOWNLOAD SECTION --- */
+.download-container {
+    max-width: 800px;
+    margin: 0 auto;
+    background: var(--bg-light);
+    padding: 50px;
+    border-top: 5px solid var(--racing-red);
+    text-align: center;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+    border-radius: 8px;
+}
+
+.requirements {
+    text-align: left;
+    background: white;
+    padding: 20px;
+    margin: 30px 0;
+    border-radius: 5px;
+    border: 1px solid #e0e0e0;
+}
+.requirements h4 { margin-bottom: 10px; }
+.requirements ul { list-style: none; padding-left: 0; }
+.requirements li { color: var(--text-muted); margin-bottom: 5px; }
+.requirements li i { color: var(--electric-blue); width: 20px; }
+
+/* --- BOOKING PAGE STYLES --- */
+/* --- 預約頁：收費方案（參考 pay.html） --- */
+.pricing-section {
+    padding-top: 40px;
+    padding-bottom: 20px;
+}
+.pricing-section-title {
+    text-align: center;
+    font-size: 2.5rem;
+    color: var(--text-main);
+    margin-bottom: 2rem;
+    position: relative;
+}
+.pricing-section-title::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 3px;
+    background: var(--racing-red);
+    margin: 10px auto 0;
+}
+.pricing-container {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+.pricing-card {
+    background: var(--bg-light);
+    border: 2px solid #e8e8e8;
+    border-radius: 12px;
+    padding: 2rem;
+    width: 100%;
+    max-width: 320px;
+    text-align: center;
+    position: relative;
+    transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+}
+.pricing-card:hover {
+    transform: translateY(-8px);
+    border-color: var(--electric-blue);
+    box-shadow: 0 12px 28px rgba(0,0,0,0.12);
+}
+.pricing-card-popular {
+    border-color: var(--racing-red);
+    box-shadow: 0 6px 20px rgba(255, 24, 1, 0.12);
+}
+.pricing-card-popular:hover {
+    border-color: var(--racing-red);
+    box-shadow: 0 12px 28px rgba(255, 24, 1, 0.2);
+}
+.pricing-ribbon {
+    position: absolute;
+    top: 20px;
+    right: -32px;
+    background: var(--racing-red);
+    color: white;
+    padding: 6px 36px;
+    font-weight: bold;
+    font-size: 0.8rem;
+    transform: rotate(45deg);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+.pricing-card h3 {
+    font-size: 1.35rem;
+    margin-bottom: 1.25rem;
+    color: var(--electric-blue);
+}
+.price-tag {
+    margin-bottom: 1.25rem;
+}
+.price-tag .price {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--racing-red);
+    font-family: var(--font-display);
+    line-height: 1;
+}
+.price-tag .currency {
+    font-size: 1rem;
+    color: var(--text-muted);
+    vertical-align: top;
+}
+.price-tag .duration {
+    color: var(--text-muted);
+    font-weight: 600;
+    display: block;
+    font-size: 0.95rem;
+    margin-top: 4px;
+}
+.pricing-features {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 1.5rem;
+    text-align: left;
+}
+.pricing-features li {
+    margin-bottom: 0.75rem;
+    color: var(--text-main);
+    font-size: 0.95rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid #e8e8e8;
+    display: flex;
+    align-items: center;
+}
+.pricing-features li:last-child {
+    border-bottom: none;
+}
+.pricing-features li i {
+    color: var(--racing-red);
+    margin-right: 10px;
+    width: 20px;
+    text-align: center;
+}
+.pricing-select-btn {
+    background: transparent;
+    border: 2px solid var(--racing-red);
+    color: var(--racing-red);
+    padding: 12px 20px;
+    border-radius: 6px;
+    font-weight: 700;
+    font-family: var(--font-body);
+    transition: all 0.3s;
+    cursor: pointer;
+    width: 100%;
+    margin-top: auto;
+}
+.pricing-select-btn:hover {
+    background: var(--racing-red);
+    color: white;
+}
+.pricing-card-popular .pricing-select-btn {
+    background: var(--racing-red);
+    color: white;
+}
+.pricing-card-popular .pricing-select-btn:hover {
+    background: var(--text-main);
+    border-color: var(--text-main);
+}
+
+.booking-container {
+    max-width: 900px;
+    margin: 0 auto;
+    background: var(--bg-light);
+    padding: 40px;
+    border-radius: 8px;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+    text-align: center;
+}
+
+.booking-container label {
+    display: block;
+    margin-bottom: 10px;
+    font-weight: bold;
+    color: var(--text-main);
+    font-size: 1.1rem;
+}
+
+.booking-container input[type="date"] {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-family: var(--font-body);
+    font-size: 1rem;
+    margin-bottom: 20px;
+    width: 100%;
+    max-width: 300px;
+    text-align: center;
+    background-color: white;
+}
+
+.booking-plan-select {
+    width: 100%;
+    padding: 10px 12px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-family: var(--font-body);
+    font-size: 1rem;
+    background-color: white;
+    color: var(--text-main);
+    cursor: pointer;
+}
+
+.time-slots-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    gap: 10px;
+    margin-top: 20px;
+    margin-bottom: 30px;
+    justify-content: center;
+}
+
+.time-slot-btn {
+    background-color: white;
+    border: 1px solid var(--electric-blue);
+    color: var(--electric-blue);
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-family: var(--font-body);
+    font-size: 1rem;
+    transition: all 0.2s ease;
+    width: 100%;
+}
+
+.time-slot-btn:hover {
+    background-color: var(--electric-blue);
+    color: white;
+}
+
+.time-slot-btn.active {
+    background-color: var(--racing-red);
+    border-color: var(--racing-red);
+    color: white;
+    box-shadow: 0 0 10px rgba(255, 24, 1, 0.4);
+}
+
+.booking-form {
+    text-align: left;
+    margin-top: 30px;
+    padding-top: 20px;
+    border-top: 1px solid #e0e0e0;
+}
+
+.booking-form .form-group {
+    margin-bottom: 15px;
+}
+
+.booking-form label {
+    font-weight: 600;
+    color: var(--text-main);
+    margin-bottom: 5px;
+}
+
+.booking-form input[type="text"],
+.booking-form input[type="tel"],
+.booking-form input[type="email"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-family: var(--font-body);
+    font-size: 1rem;
+    box-sizing: border-box;
+    background-color: white;
+}
+
+.booking-form button[type="submit"] {
+    width: auto;
+    margin-top: 20px;
+    transform: skewX(0deg); /* Remove skew for form button */
+}
+.booking-form button[type="submit"] span {
+    transform: skewX(0deg);
+}
+
+
+/* --- FOOTER --- */
+footer {
+    background: #f8f8f8;
+    text-align: center;
+    padding: 40px;
+    margin-top: 50px;
+    border-top: 1px solid #e0e0e0;
+    color: var(--text-muted);
+}
+footer p {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    margin-bottom: 8px;
+}
+.social-links a {
+    color: var(--text-muted);
+    margin: 0 10px;
+    font-size: 1.5rem;
+    transition: color 0.3s ease;
+}
+.social-links a:hover {
+    color: var(--electric-blue);
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+    .gameplay-blocks {
+        grid-template-columns: 1fr;
+    }
+    .pricing-card {
+        max-width: 100%;
+    }
+    .pricing-container {
+        gap: 1.5rem;
+    }
+    /* Navigation adjustments for mobile */
+    nav {
+        padding: 15px 20px; /* Adjust nav padding */
+        flex-wrap: wrap; /* Allow elements to wrap */
+    }
+    .nav-links {
+        display: none; /* Hide nav links by default on mobile */
+        flex-direction: column;
+        width: 100%;
+        position: absolute;
+        top: 70px; /* Position below the main nav bar */
+        left: 0;
+        background: rgba(255, 255, 255, 0.98);
+        border-top: 1px solid #eee;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        padding: 10px 0;
+        z-index: 999;
+        max-height: calc(100vh - 70px);
+        overflow-y: auto; /* Enable scrolling for long menus */
+    }
+    .nav-links.open {
+        display: flex; /* Show menu when 'open' class is applied */
+    }
+    .nav-links .nav-btn {
+        width: 100%;
+        text-align: left;
+        padding: 12px 20px;
+        border-bottom: 1px solid #f0f0f0;
+    }
+    .nav-links .nav-btn:last-child {
+        border-bottom: none;
+    }
+    .nav-dropdown {
+        width: 100%;
+    }
+    .nav-dropdown-trigger {
+        width: 100%;
+        justify-content: flex-start;
+        padding: 12px 20px;
+        text-align: left;
+        border-bottom: 1px solid #f0f0f0;
+    }
+    .nav-dropdown-menu {
+        position: static;
+        opacity: 1;
+        visibility: visible;
+        transform: none;
+        box-shadow: none;
+        border: none;
+        border-radius: 0;
+        padding: 0;
+        margin: 0;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.25s ease;
+    }
+    .nav-dropdown.open .nav-dropdown-menu {
+        max-height: 220px;
+    }
+    .nav-dropdown-menu a {
+        padding: 12px 20px 12px 40px;
+        border-bottom: 1px solid #f0f0f0;
+    }
+    .menu-toggle {
+        display: block; /* Show hamburger icon on mobile */
+    }
+
+    /* General page adjustments */
+    .hero h1 { font-size: 2rem; }
+    .hero p { font-size: 1rem; margin: 0 auto 20px auto; }
+    .hero { height: 60vh; }
+    .cta-button, .btn-secondary {
+        display: block; /* Make buttons stack vertically */
+        width: calc(100% - 40px); /* Full width minus container padding */
+        margin: 10px auto; /* Center buttons and add vertical spacing */
+        transform: skewX(0deg); /* Remove skew for better readability */
+        text-align: center;
+        padding: 12px 20px;
+    }
+    .cta-button span { transform: skewX(0deg); } /* Remove skew from span content */
+    .btn-secondary { margin-left: auto; margin-right: auto; } /* Ensure secondary button centers */
+
+    /* Grid containers now always stack on mobile */
+    .grid-container, .values-container {
+        grid-template-columns: 1fr;
+    }
+    .container {
+        padding: 20px; /* Reduce general container padding */
+    }
+    .section-header h2 {
+        font-size: 2rem;
+    }
+    .section-header p {
+        font-size: 1rem;
+    }
+    .download-nav { /* Ensure download nav button also removes skew */
+        transform: skewX(0deg);
+    }
+    .download-nav span {
+        transform: skewX(0deg);
+    }
+}
+
+/* Further adjustments for very small phone screens */
+@media (max-width: 480px) {
+    nav { padding: 10px 15px; }
+    .logo-img { height: 35px; } /* Smaller logo on very small screens */
+    .hero h1 { font-size: 1.8rem; }
+    .hero p { font-size: 0.9rem; }
+    .cta-button, .btn-secondary {
+        font-size: 1rem;
+        padding: 10px 15px;
+    }
+    .slider-arrow {
+        padding: 8px 12px;
+        font-size: 18px;
+        left: 10px;
+        right: 10px;
+    }
+    .hero-content {
+        padding: 10px;
+    }
+    footer {
+        padding: 20px;
+        font-size: 0.8rem;
+    }
+    .social-links a {
+        font-size: 1.2rem;
+        margin: 0 5px;
+    }
+}
+
+/* Hide slider arrows on mobile screens */
+@media (max-width: 768px) {
+    .slider-arrow { display: none; } /* NEW: Hide slider arrows on small screens */
+}
