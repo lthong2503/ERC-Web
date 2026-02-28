@@ -279,6 +279,44 @@ function galleryNext() {
   color: #666;
   text-align: center;
 }
+
+/* 手機版：相片區全寬、按鈕疊在相片上，相片更大 */
+@media (max-width: 768px) {
+  .exhibition-detail-page .container {
+    padding-left: 12px;
+    padding-right: 12px;
+  }
+  .exhibition-detail-gallery {
+    margin-left: -12px;
+    margin-right: -12px;
+  }
+  .exhibition-gallery-slider {
+    position: relative;
+    gap: 0;
+  }
+  .exhibition-gallery-main {
+    width: 100%;
+    flex: 1 1 100%;
+    aspect-ratio: 4/3;
+  }
+  .exhibition-gallery-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 40px;
+    height: 40px;
+    font-size: 0.95rem;
+    z-index: 2;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.2);
+  }
+  .exhibition-gallery-prev {
+    left: 8px;
+  }
+  .exhibition-gallery-next {
+    right: 8px;
+  }
+}
+
 .exhibition-detail-not-found {
   text-align: center;
   padding: 3rem;

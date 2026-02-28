@@ -415,7 +415,7 @@ nav {
     display: block;
 }
 .feature-card h3 {
-    color: var(--electric-blue);
+    color: var(--racing-red);
     margin-bottom: 1rem;
     font-size: 1.25rem;
 }
@@ -848,6 +848,32 @@ nav {
 flex-direction: row-reverse;
 }
 
+/* 展覽活動：手機版改為上下堆疊，避免圖文各半擁擠 */
+@media (max-width: 768px) {
+  #exhibitions .split-container {
+    flex-direction: column;
+    gap: 16px;
+    margin-bottom: 36px;
+  }
+  #exhibitions .split-container:nth-child(even) {
+    flex-direction: column;
+  }
+  #exhibitions .split-image,
+  #exhibitions .split-text {
+    flex: none;
+    width: 100%;
+  }
+  #exhibitions .split-image {
+    order: 1;
+  }
+  #exhibitions .split-text {
+    order: 2;
+  }
+  #exhibitions .container {
+    padding-left: 16px !important;
+    padding-right: 16px !important;
+  }
+}
 
 /* 首頁核心價值專用：三欄 (3, 1fr) */
 .values-container {
@@ -1270,24 +1296,36 @@ footer p {
     }
     .nav-links .nav-btn {
         width: 100%;
-        text-align: left;
+        text-align: center;
+        justify-content: center;
         padding: 12px 20px;
         border-bottom: 1px solid #f0f0f0;
     }
     .nav-links .nav-btn:last-child {
         border-bottom: none;
     }
+    /* 手機版：下拉選單，主項一行、子項各佔一整行在下方，選單字置中 */
     .nav-dropdown {
         width: 100%;
+        display: flex;
+        flex-direction: column;
+        text-align: center;
     }
     .nav-dropdown-trigger {
         width: 100%;
-        justify-content: flex-start;
+        flex: 0 0 auto;
+        justify-content: center;
+        align-items: center;
+        gap: 8px;
         padding: 12px 20px;
-        text-align: left;
+        text-align: center;
         border-bottom: 1px solid #f0f0f0;
+        box-sizing: border-box;
     }
     .nav-dropdown-menu {
+        display: block;
+        width: 100%;
+        flex: 0 0 auto;
         position: static;
         opacity: 1;
         visibility: visible;
@@ -1300,13 +1338,30 @@ footer p {
         max-height: 0;
         overflow: hidden;
         transition: max-height 0.25s ease;
+        text-align: center;
+        list-style: none;
+    }
+    .nav-dropdown-menu li {
+        display: block;
+        width: 100%;
+        margin: 0;
+        padding: 0;
+        list-style: none;
     }
     .nav-dropdown.open .nav-dropdown-menu {
         max-height: 220px;
     }
     .nav-dropdown-menu a {
-        padding: 12px 20px 12px 40px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        box-sizing: border-box;
+        padding: 12px 20px;
         border-bottom: 1px solid #f0f0f0;
+    }
+    .nav-dropdown-menu a i {
+        margin-right: 8px;
     }
     .menu-toggle {
         display: block; /* Show hamburger icon on mobile */
