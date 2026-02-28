@@ -16,7 +16,7 @@
         </div>
 
         <div class="card">
-          <h3><i class="fas fa-vr-cardboard"></i> ERC 體驗館</h3>
+          <h3><i class="fas fa-vr-cardboard"></i> ERC駕駛體驗館</h3>
           <p><strong>地址：</strong>九龍 - 九龍灣臨興街 21 號</p>
           <p>美羅中心二期 17 樓 15 室</p>
           <p style="margin-top:15px; color: var(--electric-blue);">歡迎預約參觀</p>

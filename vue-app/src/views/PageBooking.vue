@@ -43,7 +43,7 @@
 
     <div class="container">
       <div class="booking-container" ref="bookingFormRef">
-        <h2 style="color: var(--text-main); margin-bottom: 20px;">預約 ERC 體驗館時間</h2>
+        <h2 style="color: var(--text-main); margin-bottom: 20px;">預約 ERC駕駛體驗館時間</h2>
 
         <div class="form-group" style="text-align: left; max-width: 400px; margin: 0 auto 20px;">
           <label for="booking-plan">選擇方案：</label>

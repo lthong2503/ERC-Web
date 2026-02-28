@@ -13,7 +13,7 @@
     </main>
     <footer>
       <div class="logo" style="font-size: 1.2rem; margin-bottom: 20px;">ERC <span>Project</span></div>
-      <p>&copy; 2025 ERC 智能實景駕駛體驗館 · 德安駕駛學校有限公司</p>
+      <p>&copy; 2025 ERC駕駛體驗館 · 德安駕駛學校有限公司</p>
       <p>智能駕駛體驗 | STEM 教育創新 | 安全駕駛培訓</p>
     </footer>
   </div>

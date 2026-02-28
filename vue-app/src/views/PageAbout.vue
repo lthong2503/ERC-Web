@@ -8,7 +8,7 @@
     <div class="container">
       <div style="max-width: 800px; margin: 0 auto; background: var(--bg-light); padding: 40px; border-radius: 8px;">
         <h3 style="color: var(--electric-blue); margin-bottom: 20px;">我們的使命</h3>
-        <p style="margin-bottom: 20px;">ERC 智能實景駕駛體驗館由教育及駕駛訓練專家共同策劃，結合虛擬實景（VR）、人工智能（AI）、電動車（EV）及遙感現實（TR）技術，為香港提供首創的智能駕駛教育平台。</p>
+        <p style="margin-bottom: 20px;">ERC駕駛體驗館由教育及駕駛訓練專家共同策劃，結合虛擬實景（VR）、人工智能（AI）、電動車（EV）及遙感現實（TR）技術，為香港提供首創的智能駕駛教育平台。</p>
         <p>透過科技創新，讓每位學生都能享受安全、高效且富有啟發性的駕駛學習體驗，培育具備道路安全意識和 STEM 技能的未來人才。</p>
 
         <hr style="margin: 30px 0; border: 0; border-top: 1px solid #ddd;">

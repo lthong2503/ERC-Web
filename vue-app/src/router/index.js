@@ -5,6 +5,7 @@ const routes = [
   { path: '/home', name: 'Home', component: () => import('@/views/PageHome.vue'), meta: { id: 'home' } },
   { path: '/about', name: 'About', component: () => import('@/views/PageAbout.vue'), meta: { id: 'about' } },
   { path: '/exhibitions', name: 'Exhibitions', component: () => import('@/views/PageExhibitions.vue'), meta: { id: 'exhibitions' } },
+  { path: '/exhibitions/:id', name: 'ExhibitionDetail', component: () => import('@/views/PageExhibitionDetail.vue'), meta: { id: 'exhibitions' } },
   { path: '/courses', name: 'Courses', component: () => import('@/views/PageCourses.vue'), meta: { id: 'courses' } },
   { path: '/contact', name: 'Contact', component: () => import('@/views/PageContact.vue'), meta: { id: 'contact' } },
   { path: '/license-challenge', name: 'LicenseChallenge', component: () => import('@/views/PageLicenseChallenge.vue'), meta: { id: 'license-challenge' } },
